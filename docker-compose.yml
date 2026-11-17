@@ -8,13 +8,13 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: docker
-      POSTGRES_DB: packageTrackingdb
+      POSTGRES_DB: packagedb
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d packageTrackingdb"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d packagedb"]
       interval: 5s
       timeout: 5s
       retries: 10
