@@ -25,7 +25,7 @@ services:
   exam-service:
     image: tulasigogisetty09/docker-skill-exam-2400033143:latest
     build:
-      context: ./ASSIGNMENTWORKSPACE
+      context: ./ASSIGNMENTWORKSPACE/PackageTrackingServiceProject
       dockerfile: Dockerfile
     container_name: package
     ports:
