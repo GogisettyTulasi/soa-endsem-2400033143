@@ -1,0 +1,895 @@
+!SESSION 2026-11-17 15:15:51.316 -----------------------------------------------
+eclipse.buildId=4.34.0.20241128-0756
+java.version=23.0.2
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product -data C:\Users\dell\OneDrive\Pictures\Documents\SOA\ENDSEMWORKSPACE
+
+!ENTRY org.eclipse.eclemma.core 4 0 2026-11-17 15:16:07.157
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.eclemma.core [154]
+  Unresolved requirement: Require-Bundle: org.jacoco.agent; bundle-version="[0.8.12,0.8.13)"
+    -> Bundle-SymbolicName: org.jacoco.agent; bundle-version="0.8.12.202403310830"
+       org.jacoco.agent [487]
+         No resolution report for the bundle.  Unresolved requirement: Require-Bundle: org.jacoco.report; bundle-version="[0.8.12,0.8.13)"
+    -> Bundle-SymbolicName: org.jacoco.report; bundle-version="0.8.12.202403310830"
+       org.jacoco.report [489]
+         Unresolved requirement: Import-Package: org.jacoco.core; version="[0.8.12,0.8.13)"
+           -> Export-Package: org.jacoco.core; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"
+              org.jacoco.core [488]
+                Unresolved requirement: Import-Package: org.objectweb.asm.tree; version="[9.7.0,9.8.0)"
+                  -> Export-Package: org.objectweb.asm.tree; bundle-symbolic-name="org.objectweb.asm.tree"; bundle-version="9.7.1"; version="9.7.1"; uses:="org.objectweb.asm,org.objectweb.asm.signature"
+                     org.objectweb.asm.tree [500]
+                       Unresolved requirement: Import-Package: org.objectweb.asm.signature; version="9.7.1"
+                         -> Export-Package: org.objectweb.asm.signature; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+                            org.objectweb.asm [498]
+                              No resolution report for the bundle.                       Unresolved requirement: Import-Package: org.objectweb.asm; version="9.7.1"
+                         -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+                Unresolved requirement: Import-Package: org.objectweb.asm; version="[9.7.0,9.8.0)"
+                  -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+         Unresolved requirement: Import-Package: org.objectweb.asm; version="[9.7.0,9.8.0)"
+           -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+         Unresolved requirement: Import-Package: org.jacoco.core.data; version="[0.8.12,0.8.13)"
+           -> Export-Package: org.jacoco.core.data; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"; uses:="org.jacoco.core.internal.data"
+         Unresolved requirement: Import-Package: org.jacoco.core.analysis; version="[0.8.12,0.8.13)"
+           -> Export-Package: org.jacoco.core.analysis; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"; uses:="org.jacoco.core.data,org.jacoco.core.internal.analysis"
+         Unresolved requirement: Import-Package: org.jacoco.core.runtime; version="[0.8.12,0.8.13)"
+           -> Export-Package: org.jacoco.core.runtime; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"; uses:="org.jacoco.core.data,org.objectweb.asm"
+  Unresolved requirement: Require-Bundle: org.jacoco.core; bundle-version="[0.8.12,0.8.13)"
+    -> Bundle-SymbolicName: org.jacoco.core; bundle-version="0.8.12.202403310830"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.12.202403310830"; osgi.identity="org.jacoco.core"] because it is exposed to package 'org.objectweb.asm' from resources org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.7.1"; osgi.identity="org.objectweb.asm"] and org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.9.1"; osgi.identity="org.objectweb.asm"] via two dependency chains.
+
+Chain 1:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.12.202403310830"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(&(version>=9.7.0)(!(version>=9.8.0))))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.7.1"; osgi.identity="org.objectweb.asm"]
+
+Chain 2:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.12.202403310830"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm.commons)(&(version>=9.7.0)(!(version>=9.8.0))))
+     |
+    export: osgi.wiring.package=org.objectweb.asm.commons; uses:=org.objectweb.asm
+  org.objectweb.asm.commons [osgi.identity; type="osgi.bundle"; version:Version="9.7.1"; osgi.identity="org.objectweb.asm.commons"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(version>=9.7.1))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.9.1"; osgi.identity="org.objectweb.asm"]
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2102)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2093)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2033)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1996)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1912)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.eclemma.ui 4 0 2026-11-17 15:16:07.242
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.eclemma.ui [156]
+  Unresolved requirement: Require-Bundle: org.eclipse.eclemma.core
+    -> Bundle-SymbolicName: org.eclipse.eclemma.core; bundle-version="3.1.9.202405260028"; singleton:="true"
+       org.eclipse.eclemma.core [154]
+         Unresolved requirement: Require-Bundle: org.jacoco.agent; bundle-version="[0.8.12,0.8.13)"
+           -> Bundle-SymbolicName: org.jacoco.agent; bundle-version="0.8.12.202403310830"
+              org.jacoco.agent [487]
+                No resolution report for the bundle.         Unresolved requirement: Require-Bundle: org.jacoco.report; bundle-version="[0.8.12,0.8.13)"
+           -> Bundle-SymbolicName: org.jacoco.report; bundle-version="0.8.12.202403310830"
+              org.jacoco.report [489]
+                Unresolved requirement: Import-Package: org.jacoco.core; version="[0.8.12,0.8.13)"
+                  -> Export-Package: org.jacoco.core; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"
+                     org.jacoco.core [488]
+                       Unresolved requirement: Import-Package: org.objectweb.asm.tree; version="[9.7.0,9.8.0)"
+                         -> Export-Package: org.objectweb.asm.tree; bundle-symbolic-name="org.objectweb.asm.tree"; bundle-version="9.7.1"; version="9.7.1"; uses:="org.objectweb.asm,org.objectweb.asm.signature"
+                            org.objectweb.asm.tree [500]
+                              Unresolved requirement: Import-Package: org.objectweb.asm.signature; version="9.7.1"
+                                -> Export-Package: org.objectweb.asm.signature; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+                                   org.objectweb.asm [498]
+                                     No resolution report for the bundle.                              Unresolved requirement: Import-Package: org.objectweb.asm; version="9.7.1"
+                                -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+                       Unresolved requirement: Import-Package: org.objectweb.asm; version="[9.7.0,9.8.0)"
+                         -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+                Unresolved requirement: Import-Package: org.objectweb.asm; version="[9.7.0,9.8.0)"
+                  -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+                Unresolved requirement: Import-Package: org.jacoco.core.data; version="[0.8.12,0.8.13)"
+                  -> Export-Package: org.jacoco.core.data; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"; uses:="org.jacoco.core.internal.data"
+                Unresolved requirement: Import-Package: org.jacoco.core.analysis; version="[0.8.12,0.8.13)"
+                  -> Export-Package: org.jacoco.core.analysis; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"; uses:="org.jacoco.core.data,org.jacoco.core.internal.analysis"
+                Unresolved requirement: Import-Package: org.jacoco.core.runtime; version="[0.8.12,0.8.13)"
+                  -> Export-Package: org.jacoco.core.runtime; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"; uses:="org.jacoco.core.data,org.objectweb.asm"
+         Unresolved requirement: Require-Bundle: org.jacoco.core; bundle-version="[0.8.12,0.8.13)"
+           -> Bundle-SymbolicName: org.jacoco.core; bundle-version="0.8.12.202403310830"
+  Unresolved requirement: Require-Bundle: org.jacoco.core; bundle-version="[0.8.12,0.8.13)"
+    -> Bundle-SymbolicName: org.jacoco.core; bundle-version="0.8.12.202403310830"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.12.202403310830"; osgi.identity="org.jacoco.core"] because it is exposed to package 'org.objectweb.asm' from resources org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.7.1"; osgi.identity="org.objectweb.asm"] and org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.9.1"; osgi.identity="org.objectweb.asm"] via two dependency chains.
+
+Chain 1:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.12.202403310830"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(&(version>=9.7.0)(!(version>=9.8.0))))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.7.1"; osgi.identity="org.objectweb.asm"]
+
+Chain 2:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.12.202403310830"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm.commons)(&(version>=9.7.0)(!(version>=9.8.0))))
+     |
+    export: osgi.wiring.package=org.objectweb.asm.commons; uses:=org.objectweb.asm
+  org.objectweb.asm.commons [osgi.identity; type="osgi.bundle"; version:Version="9.7.1"; osgi.identity="org.objectweb.asm.commons"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(version>=9.7.1))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.9.1"; osgi.identity="org.objectweb.asm"]
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2102)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2093)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2033)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1996)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1912)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY ch.qos.logback.classic 1 0 2026-11-17 15:16:07.832
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY org.eclipse.linuxtools.docker.core 4 0 2026-11-17 15:16:10.257
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.linuxtools.docker.core [574]
+  Unresolved requirement: Require-Bundle: org.glassfish.jersey.media.jersey-media-json-jackson; bundle-version="3.1.5"
+    -> Bundle-SymbolicName: org.glassfish.jersey.media.jersey-media-json-jackson; bundle-version="4.0.2"
+       org.glassfish.jersey.media.jersey-media-json-jackson [601]
+         Unresolved requirement: Import-Package: jakarta.ws.rs.ext; version="[3.1.0,5.0.0)"
+           -> Export-Package: jakarta.ws.rs.ext; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core"
+              jakarta.ws.rs-api [547]
+                Unresolved requirement: Import-Package: jakarta.xml.bind.annotation; version="[3.0.0,4.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: jakarta.xml.bind.annotation.adapters; version="[3.0.0,4.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: jakarta.ws.rs.sse; version="[3.1.0,5.0.0)"
+           -> Export-Package: jakarta.ws.rs.sse; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.client,jakarta.ws.rs.core"
+         Unresolved requirement: Import-Package: jakarta.ws.rs.container; version="[3.1.0,5.0.0)"
+           -> Export-Package: jakarta.ws.rs.container; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core"
+         Unresolved requirement: Import-Package: com.fasterxml.jackson.module.jakarta.xmlbind; version="[2.19.0,3.0.0)"
+           -> Export-Package: com.fasterxml.jackson.module.jakarta.xmlbind; bundle-symbolic-name="com.fasterxml.jackson.module.jackson-module-jakarta-xmlbind-annotations"; bundle-version="2.21.3"; version="2.21.3"; uses:="com.fasterxml.jackson.annotation,com.fasterxml.jackson.core,com.fasterxml.jackson.databind,com.fasterxml.jackson.databind.cfg,com.fasterxml.jackson.databind.introspect,com.fasterxml.jackson.databind.jsontype,com.fasterxml.jackson.databind.type,com.fasterxml.jackson.databind.util,jakarta.xml.bind.annotation,jakarta.xml.bind.annotation.adapters"
+              com.fasterxml.jackson.module.jackson-module-jakarta-xmlbind-annotations [534]
+         Unresolved requirement: Import-Package: jakarta.ws.rs; version="[3.1.0,5.0.0)"
+           -> Export-Package: jakarta.ws.rs; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core,javax.net.ssl"
+         Unresolved requirement: Import-Package: org.glassfish.jersey.message.filtering; version="[4.0.0,5.0.0)"
+           -> Export-Package: org.glassfish.jersey.message.filtering; bundle-symbolic-name="org.glassfish.jersey.ext.jersey-entity-filtering"; bundle-version="4.0.2"; version="4.0.2"; uses:="jakarta.annotation,jakarta.annotation.security,jakarta.inject,jakarta.ws.rs.core,org.glassfish.jersey.message.filtering.spi"
+              org.glassfish.jersey.ext.jersey-entity-filtering [599]
+                Unresolved requirement: Import-Package: org.glassfish.jersey.server; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.glassfish.jersey.server; bundle-symbolic-name="org.glassfish.jersey.core.jersey-server"; bundle-version="4.0.2"; version="4.0.2"; uses:="jakarta.inject,jakarta.ws.rs,jakarta.ws.rs.container,jakarta.ws.rs.core,jakarta.ws.rs.ext,javax.net.ssl,org.glassfish.jersey,org.glassfish.jersey.http,org.glassfish.jersey.innate,org.glassfish.jersey.internal,org.glassfish.jersey.internal.inject,org.glassfish.jersey.internal.util,org.glassfish.jersey.internal.util.collection,org.glassfish.jersey.message,org.glassfish.jersey.message.internal,org.glassfish.jersey.server.internal,org.glassfish.jersey.server.internal.inject,org.glassfish.jersey.server.internal.process,org.glassfish.jersey.server.model,org.glassfish.jersey.server.spi,org.glassfish.jersey.server.spi.internal,org.glassfish.jersey.uri"
+                     org.glassfish.jersey.core.jersey-server [598]
+                       Unresolved requirement: Import-Package: jakarta.validation; version="[3.0.0,4.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: jakarta.ws.rs.ext; version="[3.1.0,5.0.0)"
+                         -> Export-Package: jakarta.ws.rs.ext; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core"
+                       Unresolved requirement: Import-Package: jakarta.ws.rs.container; version="[3.1.0,5.0.0)"
+                         -> Export-Package: jakarta.ws.rs.container; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core"
+                       Unresolved requirement: Import-Package: jakarta.ws.rs.client; version="[3.1.0,5.0.0)"
+                         -> Export-Package: jakarta.ws.rs.client; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core,javax.net.ssl"
+                       Unresolved requirement: Import-Package: jakarta.ws.rs; version="[3.1.0,5.0.0)"
+                         -> Export-Package: jakarta.ws.rs; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core,javax.net.ssl"
+                       Unresolved requirement: Import-Package: org.glassfish.jersey.client; version="[4.0.0,5.0.0)"
+                         -> Export-Package: org.glassfish.jersey.client; bundle-symbolic-name="org.glassfish.jersey.core.jersey-client"; bundle-version="4.0.2"; version="4.0.2"; uses:="jakarta.inject,jakarta.ws.rs,jakarta.ws.rs.client,jakarta.ws.rs.core,jakarta.ws.rs.ext,javax.net.ssl,org.glassfish.jersey,org.glassfish.jersey.client.inject,org.glassfish.jersey.client.spi,org.glassfish.jersey.http,org.glassfish.jersey.innate,org.glassfish.jersey.internal,org.glassfish.jersey.internal.inject,org.glassfish.jersey.internal.util,org.glassfish.jersey.internal.util.collection,org.glassfish.jersey.message,org.glassfish.jersey.message.internal,org.glassfish.jersey.spi"
+                            org.glassfish.jersey.core.jersey-client [594]
+                              Unresolved requirement: Import-Package: jakarta.ws.rs.ext; version="[3.1.0,5.0.0)"
+                                -> Export-Package: jakarta.ws.rs.ext; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core"
+                              Unresolved requirement: Import-Package: jakarta.ws.rs; version="[3.1.0,5.0.0)"
+                                -> Export-Package: jakarta.ws.rs; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core,javax.net.ssl"
+                              Unresolved requirement: Import-Package: jakarta.ws.rs.container; version="[3.1.0,5.0.0)"
+                                -> Export-Package: jakarta.ws.rs.container; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core"
+                              Unresolved requirement: Import-Package: jakarta.ws.rs.core; version="[3.1.0,5.0.0)"
+                                -> Export-Package: jakarta.ws.rs.core; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.xml.bind.annotation,jakarta.xml.bind.annotation.adapters,javax.xml.namespace"
+                              Unresolved requirement: Import-Package: jakarta.ws.rs.client; version="[3.1.0,5.0.0)"
+                                -> Export-Package: jakarta.ws.rs.client; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core,javax.net.ssl"
+                              Unresolved requirement: Import-Package: jakarta.ws.rs.sse; version="[3.1.0,5.0.0)"
+                                -> Export-Package: jakarta.ws.rs.sse; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.client,jakarta.ws.rs.core"
+                       Unresolved requirement: Import-Package: jakarta.ws.rs.sse; version="[3.1.0,5.0.0)"
+                         -> Export-Package: jakarta.ws.rs.sse; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.client,jakarta.ws.rs.core"
+                       Unresolved requirement: Import-Package: jakarta.ws.rs.core; version="[3.1.0,5.0.0)"
+                         -> Export-Package: jakarta.ws.rs.core; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.xml.bind.annotation,jakarta.xml.bind.annotation.adapters,javax.xml.namespace"
+                Unresolved requirement: Import-Package: jakarta.ws.rs.core; version="[3.1.0,5.0.0)"
+                  -> Export-Package: jakarta.ws.rs.core; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.xml.bind.annotation,jakarta.xml.bind.annotation.adapters,javax.xml.namespace"
+                Unresolved requirement: Import-Package: jakarta.ws.rs; version="[3.1.0,5.0.0)"
+                  -> Export-Package: jakarta.ws.rs; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core,javax.net.ssl"
+                Unresolved requirement: Import-Package: jakarta.ws.rs.sse; version="[3.1.0,5.0.0)"
+                  -> Export-Package: jakarta.ws.rs.sse; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.client,jakarta.ws.rs.core"
+                Unresolved requirement: Import-Package: org.glassfish.jersey.server.filter; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.glassfish.jersey.server.filter; bundle-symbolic-name="org.glassfish.jersey.core.jersey-server"; bundle-version="4.0.2"; version="4.0.2"; uses:="jakarta.annotation,jakarta.ws.rs.container,jakarta.ws.rs.core,org.glassfish.jersey.server,org.glassfish.jersey.spi"
+                Unresolved requirement: Import-Package: org.glassfish.jersey.server.model; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.glassfish.jersey.server.model; bundle-symbolic-name="org.glassfish.jersey.core.jersey-server"; bundle-version="4.0.2"; version="4.0.2"; uses:="jakarta.ws.rs,jakarta.ws.rs.container,jakarta.ws.rs.core,jakarta.ws.rs.ext,org.glassfish.jersey,org.glassfish.jersey.internal.inject,org.glassfish.jersey.message,org.glassfish.jersey.model,org.glassfish.jersey.model.internal,org.glassfish.jersey.model.internal.spi,org.glassfish.jersey.process,org.glassfish.jersey.server,org.glassfish.jersey.server.internal,org.glassfish.jersey.server.internal.inject,org.glassfish.jersey.server.internal.process,org.glassfish.jersey.server.model.internal,org.glassfish.jersey.server.spi.internal,org.glassfish.jersey.spi,org.glassfish.jersey.uri"
+                Unresolved requirement: Import-Package: jakarta.ws.rs.container; version="[3.1.0,5.0.0)"
+                  -> Export-Package: jakarta.ws.rs.container; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core"
+                Unresolved requirement: Import-Package: jakarta.ws.rs.ext; version="[3.1.0,5.0.0)"
+                  -> Export-Package: jakarta.ws.rs.ext; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core"
+                Unresolved requirement: Import-Package: jakarta.ws.rs.client; version="[3.1.0,5.0.0)"
+                  -> Export-Package: jakarta.ws.rs.client; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core,javax.net.ssl"
+         Unresolved requirement: Import-Package: jakarta.ws.rs.core; version="[3.1.0,5.0.0)"
+           -> Export-Package: jakarta.ws.rs.core; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.xml.bind.annotation,jakarta.xml.bind.annotation.adapters,javax.xml.namespace"
+         Unresolved requirement: Import-Package: org.glassfish.jersey.message.filtering.spi; version="[4.0.0,5.0.0)"
+           -> Export-Package: org.glassfish.jersey.message.filtering.spi; bundle-symbolic-name="org.glassfish.jersey.ext.jersey-entity-filtering"; bundle-version="4.0.2"; version="4.0.2"; uses:="jakarta.ws.rs.core,org.glassfish.jersey.spi"
+         Unresolved requirement: Import-Package: jakarta.ws.rs.client; version="[3.1.0,5.0.0)"
+           -> Export-Package: jakarta.ws.rs.client; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core,javax.net.ssl"
+  Unresolved requirement: Require-Bundle: org.glassfish.jersey.core.jersey-common; bundle-version="3.1.5"
+    -> Bundle-SymbolicName: org.glassfish.jersey.core.jersey-common; bundle-version="3.1.9"
+       org.glassfish.jersey.core.jersey-common [597]
+         Unresolved requirement: Import-Package: org.glassfish.hk2.osgiresourcelocator; version="[1.0.0,2.0.0)"
+         Unresolved requirement: Import-Package: jakarta.ws.rs; version="[3.1.0,4.0.0)"
+           -> Export-Package: jakarta.ws.rs; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core,javax.net.ssl"
+         Unresolved requirement: Import-Package: jakarta.ws.rs.container; version="[3.1.0,4.0.0)"
+           -> Export-Package: jakarta.ws.rs.container; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core"
+         Unresolved requirement: Import-Package: jakarta.ws.rs.client; version="[3.1.0,4.0.0)"
+           -> Export-Package: jakarta.ws.rs.client; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core,javax.net.ssl"
+         Unresolved requirement: Import-Package: jakarta.ws.rs.ext; version="[3.1.0,4.0.0)"
+           -> Export-Package: jakarta.ws.rs.ext; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core"
+         Unresolved requirement: Import-Package: jakarta.ws.rs.core; version="[3.1.0,4.0.0)"
+           -> Export-Package: jakarta.ws.rs.core; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.xml.bind.annotation,jakarta.xml.bind.annotation.adapters,javax.xml.namespace"
+  Unresolved requirement: Require-Bundle: org.mandas.docker-client; bundle-version="7.0.7"
+    -> Bundle-SymbolicName: org.mandas.docker-client; bundle-version="11.0.1"
+       org.mandas.docker-client [606]
+         Unresolved requirement: Import-Package: org.glassfish.jersey.jackson; version="[4.0.0,5.0.0)"
+           -> Export-Package: org.glassfish.jersey.jackson; bundle-symbolic-name="org.glassfish.jersey.media.jersey-media-json-jackson"; bundle-version="4.0.2"; version="4.0.2"; uses:="com.fasterxml.jackson.databind,jakarta.ws.rs.core,org.glassfish.jersey.internal.l10n,org.glassfish.jersey.jackson.internal,org.glassfish.jersey.jackson.internal.jackson.jaxrs.cfg"
+         Unresolved requirement: Import-Package: org.glassfish.jersey.apache5.connector; version="[4.0.0,5.0.0)"
+           -> Export-Package: org.glassfish.jersey.apache5.connector; bundle-symbolic-name="org.glassfish.jersey.connectors.jersey-apache5-connector"; bundle-version="4.0.2"; version="4.0.2"; uses:="jakarta.ws.rs.client,jakarta.ws.rs.core,org.apache.hc.client5.http.classic,org.apache.hc.client5.http.classic.methods,org.apache.hc.client5.http.cookie,org.apache.hc.client5.http.impl.classic,org.glassfish.jersey.client,org.glassfish.jersey.client.spi,org.glassfish.jersey.internal.l10n,org.glassfish.jersey.internal.util,org.glassfish.jersey.spi"
+              org.glassfish.jersey.connectors.jersey-apache5-connector [593]
+                Unresolved requirement: Import-Package: org.glassfish.jersey.client; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.glassfish.jersey.client; bundle-symbolic-name="org.glassfish.jersey.core.jersey-client"; bundle-version="4.0.2"; version="4.0.2"; uses:="jakarta.inject,jakarta.ws.rs,jakarta.ws.rs.client,jakarta.ws.rs.core,jakarta.ws.rs.ext,javax.net.ssl,org.glassfish.jersey,org.glassfish.jersey.client.inject,org.glassfish.jersey.client.spi,org.glassfish.jersey.http,org.glassfish.jersey.innate,org.glassfish.jersey.internal,org.glassfish.jersey.internal.inject,org.glassfish.jersey.internal.util,org.glassfish.jersey.internal.util.collection,org.glassfish.jersey.message,org.glassfish.jersey.message.internal,org.glassfish.jersey.spi"
+                Unresolved requirement: Import-Package: org.glassfish.jersey.client.spi; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.glassfish.jersey.client.spi; bundle-symbolic-name="org.glassfish.jersey.core.jersey-client"; bundle-version="4.0.2"; version="4.0.2"; uses:="jakarta.ws.rs,jakarta.ws.rs.client,jakarta.ws.rs.core,javax.net.ssl,org.glassfish.jersey.client,org.glassfish.jersey.process,org.glassfish.jersey.spi"
+                Unresolved requirement: Import-Package: org.glassfish.jersey.client.innate; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.glassfish.jersey.client.innate; bundle-symbolic-name="org.glassfish.jersey.core.jersey-client"; bundle-version="4.0.2"; version="4.0.2"; uses:="jakarta.ws.rs,jakarta.ws.rs.client,jakarta.ws.rs.core,javax.net.ssl,org.glassfish.jersey.client,org.glassfish.jersey.client.innate.http,org.glassfish.jersey.internal,org.glassfish.jersey.internal.util.collection"
+                Unresolved requirement: Import-Package: org.glassfish.jersey.client.innate.http; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.glassfish.jersey.client.innate.http; bundle-symbolic-name="org.glassfish.jersey.core.jersey-client"; bundle-version="4.0.2"; version="4.0.2"; uses:="jakarta.ws.rs.core,javax.net.ssl,org.glassfish.jersey.client,org.glassfish.jersey.internal"
+         Unresolved requirement: Import-Package: org.glassfish.jersey.client.spi; version="[4.0.0,5.0.0)"
+           -> Export-Package: org.glassfish.jersey.client.spi; bundle-symbolic-name="org.glassfish.jersey.core.jersey-client"; bundle-version="4.0.2"; version="4.0.2"; uses:="jakarta.ws.rs,jakarta.ws.rs.client,jakarta.ws.rs.core,javax.net.ssl,org.glassfish.jersey.client,org.glassfish.jersey.process,org.glassfish.jersey.spi"
+         Unresolved requirement: Import-Package: org.glassfish.jersey.client; version="[4.0.0,5.0.0)"
+           -> Export-Package: org.glassfish.jersey.client; bundle-symbolic-name="org.glassfish.jersey.core.jersey-client"; bundle-version="4.0.2"; version="4.0.2"; uses:="jakarta.inject,jakarta.ws.rs,jakarta.ws.rs.client,jakarta.ws.rs.core,jakarta.ws.rs.ext,javax.net.ssl,org.glassfish.jersey,org.glassfish.jersey.client.inject,org.glassfish.jersey.client.spi,org.glassfish.jersey.http,org.glassfish.jersey.innate,org.glassfish.jersey.internal,org.glassfish.jersey.internal.inject,org.glassfish.jersey.internal.util,org.glassfish.jersey.internal.util.collection,org.glassfish.jersey.message,org.glassfish.jersey.message.internal,org.glassfish.jersey.spi"
+  Unresolved requirement: Import-Package: jakarta.ws.rs.core; version="2.0.1"
+    -> Export-Package: jakarta.ws.rs.core; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.xml.bind.annotation,jakarta.xml.bind.annotation.adapters,javax.xml.namespace"
+  Unresolved requirement: Import-Package: jakarta.ws.rs.client; version="2.0.1"
+    -> Export-Package: jakarta.ws.rs.client; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core,javax.net.ssl"
+  Unresolved requirement: Require-Bundle: org.glassfish.jersey.inject.jersey-hk2; bundle-version="3.1.5"
+    -> Bundle-SymbolicName: org.glassfish.jersey.inject.jersey-hk2; bundle-version="4.0.2"
+       org.glassfish.jersey.inject.jersey-hk2 [600]
+         Unresolved requirement: Import-Package: org.glassfish.hk2.utilities; version="[4.0.0,5.0.0)"
+           -> Export-Package: org.glassfish.hk2.utilities; bundle-symbolic-name="org.glassfish.hk2.api"; bundle-version="4.0.1"; version="4.0.1"; uses:="jakarta.inject,org.glassfish.hk2.api,org.glassfish.hk2.utilities.binding,org.jvnet.hk2.annotations"
+              org.glassfish.hk2.api [588]
+                Unresolved requirement: Import-Package: org.glassfish.hk2.utilities.reflection; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.glassfish.hk2.utilities.reflection; bundle-symbolic-name="org.glassfish.hk2.utils"; bundle-version="4.0.1"; version="4.0.1"
+                     org.glassfish.hk2.utils [591]
+                       Unresolved requirement: Import-Package: jakarta.validation; version="[3.1.0,4.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: jakarta.validation.metadata; version="[3.1.0,4.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: org.hibernate.validator; version="[9.1.0,10.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: org.glassfish.hk2.utilities.general; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.glassfish.hk2.utilities.general; bundle-symbolic-name="org.glassfish.hk2.utils"; bundle-version="4.0.1"; version="4.0.1"; uses:="jakarta.validation,javax.xml.namespace,javax.xml.stream,org.glassfish.hk2.utilities.cache"
+                Unresolved requirement: Import-Package: org.aopalliance.intercept; version="[1.0.0,2.0.0)"
+                  -> Export-Package: org.aopalliance.intercept; bundle-symbolic-name="org.aopalliance"; bundle-version="1.0.0.v20230720-0728"; version="1.0.0"; uses:="org.aopalliance.aop"
+                     org.aopalliance [552]
+                       No resolution report for the bundle.                Unresolved requirement: Import-Package: org.jvnet.hk2.component; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.jvnet.hk2.component; bundle-symbolic-name="org.glassfish.hk2.utils"; bundle-version="4.0.1"; version="4.0.1"
+         Unresolved requirement: Import-Package: jakarta.ws.rs.sse; version="[3.1.0,5.0.0)"
+           -> Export-Package: jakarta.ws.rs.sse; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.client,jakarta.ws.rs.core"
+         Unresolved requirement: Import-Package: jakarta.ws.rs.client; version="[3.1.0,5.0.0)"
+           -> Export-Package: jakarta.ws.rs.client; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core,javax.net.ssl"
+         Unresolved requirement: Import-Package: jakarta.ws.rs.ext; version="[3.1.0,5.0.0)"
+           -> Export-Package: jakarta.ws.rs.ext; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core"
+         Unresolved requirement: Import-Package: jakarta.ws.rs; version="[3.1.0,5.0.0)"
+           -> Export-Package: jakarta.ws.rs; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core,javax.net.ssl"
+         Unresolved requirement: Import-Package: org.glassfish.hk2.utilities.binding; version="[4.0.0,5.0.0)"
+           -> Export-Package: org.glassfish.hk2.utilities.binding; bundle-symbolic-name="org.glassfish.hk2.api"; bundle-version="4.0.1"; version="4.0.1"; uses:="org.glassfish.hk2.api,org.glassfish.hk2.utilities"
+         Unresolved requirement: Import-Package: jakarta.ws.rs.container; version="[3.1.0,5.0.0)"
+           -> Export-Package: jakarta.ws.rs.container; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core"
+         Unresolved requirement: Import-Package: org.glassfish.hk2.api; version="[4.0.0,5.0.0)"
+           -> Export-Package: org.glassfish.hk2.api; bundle-symbolic-name="org.glassfish.hk2.api"; bundle-version="4.0.1"; version="4.0.1"; uses:="jakarta.inject,org.aopalliance.intercept,org.glassfish.hk2.extension,org.glassfish.hk2.utilities,org.jvnet.hk2.annotations"
+         Unresolved requirement: Import-Package: jakarta.ws.rs.core; version="[3.1.0,5.0.0)"
+           -> Export-Package: jakarta.ws.rs.core; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.xml.bind.annotation,jakarta.xml.bind.annotation.adapters,javax.xml.namespace"
+         Unresolved requirement: Import-Package: org.jvnet.hk2.external.runtime; version="[4.0.0,5.0.0)"
+           -> Export-Package: org.jvnet.hk2.external.runtime; bundle-symbolic-name="org.glassfish.hk2.locator"; bundle-version="4.0.1"; version="4.0.1"; uses:="org.glassfish.hk2.api,org.jvnet.hk2.annotations"
+              org.glassfish.hk2.locator [589]
+                Unresolved requirement: Import-Package: org.glassfish.hk2.api; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.glassfish.hk2.api; bundle-symbolic-name="org.glassfish.hk2.api"; bundle-version="4.0.1"; version="4.0.1"; uses:="jakarta.inject,org.aopalliance.intercept,org.glassfish.hk2.extension,org.glassfish.hk2.utilities,org.jvnet.hk2.annotations"
+                Unresolved requirement: Import-Package: org.jvnet.hk2.annotations; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.jvnet.hk2.annotations; bundle-symbolic-name="org.glassfish.hk2.api"; bundle-version="4.0.1"; version="4.0.1"; uses:="org.glassfish.hk2.api"
+                Unresolved requirement: Import-Package: org.glassfish.hk2.extension; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.glassfish.hk2.extension; bundle-symbolic-name="org.glassfish.hk2.api"; bundle-version="4.0.1"; version="4.0.1"; uses:="org.glassfish.hk2.api"
+                Unresolved requirement: Import-Package: javassist.util.proxy; version="[3.30.0,4.0.0)"
+                  -> Export-Package: javassist.util.proxy; bundle-symbolic-name="javassist"; bundle-version="3.31.0.GA"; version="3.31.0.GA"; uses:="javassist,javassist.bytecode"
+                     javassist [549]
+                       No resolution report for the bundle.                Unresolved requirement: Import-Package: org.glassfish.hk2.utilities.cache; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.glassfish.hk2.utilities.cache; bundle-symbolic-name="org.glassfish.hk2.utils"; bundle-version="4.0.1"; version="4.0.1"
+                Unresolved requirement: Import-Package: org.glassfish.hk2.utilities.general; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.glassfish.hk2.utilities.general; bundle-symbolic-name="org.glassfish.hk2.utils"; bundle-version="4.0.1"; version="4.0.1"; uses:="jakarta.validation,javax.xml.namespace,javax.xml.stream,org.glassfish.hk2.utilities.cache"
+                Unresolved requirement: Import-Package: org.aopalliance.intercept; version="[1.0.0,2.0.0)"
+                  -> Export-Package: org.aopalliance.intercept; bundle-symbolic-name="org.aopalliance"; bundle-version="1.0.0.v20230720-0728"; version="1.0.0"; uses:="org.aopalliance.aop"
+                Unresolved requirement: Import-Package: org.glassfish.hk2.utilities; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.glassfish.hk2.utilities; bundle-symbolic-name="org.glassfish.hk2.api"; bundle-version="4.0.1"; version="4.0.1"; uses:="jakarta.inject,org.glassfish.hk2.api,org.glassfish.hk2.utilities.binding,org.jvnet.hk2.annotations"
+                Unresolved requirement: Import-Package: org.glassfish.hk2.api.messaging; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.glassfish.hk2.api.messaging; bundle-symbolic-name="org.glassfish.hk2.api"; bundle-version="4.0.1"; version="4.0.1"; uses:="jakarta.inject,org.glassfish.hk2.api,org.jvnet.hk2.annotations"
+                Unresolved requirement: Import-Package: org.glassfish.hk2.utilities.reflection; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.glassfish.hk2.utilities.reflection; bundle-symbolic-name="org.glassfish.hk2.utils"; bundle-version="4.0.1"; version="4.0.1"
+                Unresolved requirement: Import-Package: org.glassfish.hk2.utilities.reflection.internal; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.glassfish.hk2.utilities.reflection.internal; bundle-symbolic-name="org.glassfish.hk2.utils"; bundle-version="4.0.1"; version="4.0.1"; uses:="org.glassfish.hk2.utilities.reflection"
+         Unresolved requirement: Import-Package: org.glassfish.hk2.utilities.reflection; version="[4.0.0,5.0.0)"
+           -> Export-Package: org.glassfish.hk2.utilities.reflection; bundle-symbolic-name="org.glassfish.hk2.utils"; bundle-version="4.0.1"; version="4.0.1"
+         Unresolved requirement: Import-Package: org.glassfish.hk2.extension; version="[4.0.0,5.0.0)"
+           -> Export-Package: org.glassfish.hk2.extension; bundle-symbolic-name="org.glassfish.hk2.api"; bundle-version="4.0.1"; version="4.0.1"; uses:="org.glassfish.hk2.api"
+  Unresolved requirement: Import-Package: jakarta.ws.rs; version="2.0.1"
+    -> Export-Package: jakarta.ws.rs; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core,javax.net.ssl"
+  Unresolved requirement: Import-Package: org.glassfish.jersey.apache.connector
+    -> Export-Package: org.glassfish.jersey.apache.connector; bundle-symbolic-name="org.glassfish.jersey.connectors.jersey-apache-connector"; bundle-version="3.1.9"; version="3.1.9"; uses:="jakarta.ws.rs.client,jakarta.ws.rs.core,org.apache.http.client,org.apache.http.client.methods,org.apache.http.impl.client,org.glassfish.jersey.client,org.glassfish.jersey.client.spi,org.glassfish.jersey.internal.l10n,org.glassfish.jersey.internal.util,org.glassfish.jersey.spi"
+       org.glassfish.jersey.connectors.jersey-apache-connector [592]
+         Unresolved requirement: Import-Package: org.glassfish.jersey.client.innate; version="[3.1.0,4.0.0)"
+           -> Export-Package: org.glassfish.jersey.client.innate; bundle-symbolic-name="org.glassfish.jersey.core.jersey-client"; bundle-version="3.1.9"; version="3.1.9"; uses:="jakarta.ws.rs.core,org.glassfish.jersey.client"
+              org.glassfish.jersey.core.jersey-client [595]
+                Unresolved requirement: Import-Package: jakarta.ws.rs; version="[3.1.0,4.0.0)"
+                  -> Export-Package: jakarta.ws.rs; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core,javax.net.ssl"
+                Unresolved requirement: Import-Package: org.glassfish.jersey.http; version="[3.1.0,4.0.0)"
+                  -> Export-Package: org.glassfish.jersey.http; bundle-symbolic-name="org.glassfish.jersey.core.jersey-common"; bundle-version="3.1.9"; version="3.1.9"; uses:="jakarta.ws.rs.core"
+                Unresolved requirement: Import-Package: jakarta.ws.rs.ext; version="[3.1.0,4.0.0)"
+                  -> Export-Package: jakarta.ws.rs.ext; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core"
+                Unresolved requirement: Import-Package: jakarta.ws.rs.core; version="[3.1.0,4.0.0)"
+                  -> Export-Package: jakarta.ws.rs.core; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.xml.bind.annotation,jakarta.xml.bind.annotation.adapters,javax.xml.namespace"
+                Unresolved requirement: Import-Package: org.glassfish.jersey; version="[3.1.0,4.0.0)"
+                  -> Export-Package: org.glassfish.jersey; bundle-symbolic-name="org.glassfish.jersey.core.jersey-common"; bundle-version="3.1.9"; version="3.1.9"; uses:="jakarta.ws.rs,jakarta.ws.rs.core,jakarta.ws.rs.ext,javax.net.ssl,org.glassfish.jersey.internal,org.glassfish.jersey.internal.inject,org.glassfish.jersey.internal.util"
+                Unresolved requirement: Import-Package: jakarta.ws.rs.client; version="[3.1.0,4.0.0)"
+                  -> Export-Package: jakarta.ws.rs.client; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core,javax.net.ssl"
+         Unresolved requirement: Import-Package: jakarta.ws.rs.client; version="[3.1.0,4.0.0)"
+           -> Export-Package: jakarta.ws.rs.client; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core,javax.net.ssl"
+         Unresolved requirement: Import-Package: jakarta.ws.rs; version="[3.1.0,4.0.0)"
+           -> Export-Package: jakarta.ws.rs; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core,javax.net.ssl"
+         Unresolved requirement: Import-Package: jakarta.ws.rs.core; version="[3.1.0,4.0.0)"
+           -> Export-Package: jakarta.ws.rs.core; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.xml.bind.annotation,jakarta.xml.bind.annotation.adapters,javax.xml.namespace"
+         Unresolved requirement: Import-Package: org.glassfish.jersey.client; version="[3.1.0,4.0.0)"
+           -> Export-Package: org.glassfish.jersey.client; bundle-symbolic-name="org.glassfish.jersey.core.jersey-client"; bundle-version="3.1.9"; version="3.1.9"; uses:="jakarta.inject,jakarta.ws.rs,jakarta.ws.rs.client,jakarta.ws.rs.core,jakarta.ws.rs.ext,javax.net.ssl,org.glassfish.jersey,org.glassfish.jersey.client.inject,org.glassfish.jersey.client.spi,org.glassfish.jersey.http,org.glassfish.jersey.internal,org.glassfish.jersey.internal.inject,org.glassfish.jersey.internal.util,org.glassfish.jersey.internal.util.collection,org.glassfish.jersey.message,org.glassfish.jersey.message.internal,org.glassfish.jersey.spi"
+  Unresolved requirement: Require-Bundle: org.glassfish.jersey.core.jersey-client; bundle-version="3.1.5"
+    -> Bundle-SymbolicName: org.glassfish.jersey.core.jersey-client; bundle-version="4.0.2"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2102)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2093)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2033)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1996)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1912)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.linuxtools.docker.ui 4 0 2026-11-17 15:16:10.295
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.linuxtools.docker.ui [575]
+  Unresolved requirement: Require-Bundle: org.mandas.docker-client; bundle-version="7.0.7"
+    -> Bundle-SymbolicName: org.mandas.docker-client; bundle-version="11.0.1"
+       org.mandas.docker-client [606]
+         Unresolved requirement: Import-Package: org.glassfish.jersey.jackson; version="[4.0.0,5.0.0)"
+           -> Export-Package: org.glassfish.jersey.jackson; bundle-symbolic-name="org.glassfish.jersey.media.jersey-media-json-jackson"; bundle-version="4.0.2"; version="4.0.2"; uses:="com.fasterxml.jackson.databind,jakarta.ws.rs.core,org.glassfish.jersey.internal.l10n,org.glassfish.jersey.jackson.internal,org.glassfish.jersey.jackson.internal.jackson.jaxrs.cfg"
+              org.glassfish.jersey.media.jersey-media-json-jackson [601]
+                Unresolved requirement: Import-Package: jakarta.ws.rs.ext; version="[3.1.0,5.0.0)"
+                  -> Export-Package: jakarta.ws.rs.ext; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core"
+                     jakarta.ws.rs-api [547]
+                       Unresolved requirement: Import-Package: jakarta.xml.bind.annotation; version="[3.0.0,4.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: jakarta.xml.bind.annotation.adapters; version="[3.0.0,4.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: jakarta.ws.rs.sse; version="[3.1.0,5.0.0)"
+                  -> Export-Package: jakarta.ws.rs.sse; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.client,jakarta.ws.rs.core"
+                Unresolved requirement: Import-Package: jakarta.ws.rs.container; version="[3.1.0,5.0.0)"
+                  -> Export-Package: jakarta.ws.rs.container; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core"
+                Unresolved requirement: Import-Package: com.fasterxml.jackson.module.jakarta.xmlbind; version="[2.19.0,3.0.0)"
+                  -> Export-Package: com.fasterxml.jackson.module.jakarta.xmlbind; bundle-symbolic-name="com.fasterxml.jackson.module.jackson-module-jakarta-xmlbind-annotations"; bundle-version="2.21.3"; version="2.21.3"; uses:="com.fasterxml.jackson.annotation,com.fasterxml.jackson.core,com.fasterxml.jackson.databind,com.fasterxml.jackson.databind.cfg,com.fasterxml.jackson.databind.introspect,com.fasterxml.jackson.databind.jsontype,com.fasterxml.jackson.databind.type,com.fasterxml.jackson.databind.util,jakarta.xml.bind.annotation,jakarta.xml.bind.annotation.adapters"
+                     com.fasterxml.jackson.module.jackson-module-jakarta-xmlbind-annotations [534]
+                Unresolved requirement: Import-Package: jakarta.ws.rs; version="[3.1.0,5.0.0)"
+                  -> Export-Package: jakarta.ws.rs; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core,javax.net.ssl"
+                Unresolved requirement: Import-Package: org.glassfish.jersey.message.filtering; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.glassfish.jersey.message.filtering; bundle-symbolic-name="org.glassfish.jersey.ext.jersey-entity-filtering"; bundle-version="4.0.2"; version="4.0.2"; uses:="jakarta.annotation,jakarta.annotation.security,jakarta.inject,jakarta.ws.rs.core,org.glassfish.jersey.message.filtering.spi"
+                     org.glassfish.jersey.ext.jersey-entity-filtering [599]
+                       Unresolved requirement: Import-Package: org.glassfish.jersey.server; version="[4.0.0,5.0.0)"
+                         -> Export-Package: org.glassfish.jersey.server; bundle-symbolic-name="org.glassfish.jersey.core.jersey-server"; bundle-version="4.0.2"; version="4.0.2"; uses:="jakarta.inject,jakarta.ws.rs,jakarta.ws.rs.container,jakarta.ws.rs.core,jakarta.ws.rs.ext,javax.net.ssl,org.glassfish.jersey,org.glassfish.jersey.http,org.glassfish.jersey.innate,org.glassfish.jersey.internal,org.glassfish.jersey.internal.inject,org.glassfish.jersey.internal.util,org.glassfish.jersey.internal.util.collection,org.glassfish.jersey.message,org.glassfish.jersey.message.internal,org.glassfish.jersey.server.internal,org.glassfish.jersey.server.internal.inject,org.glassfish.jersey.server.internal.process,org.glassfish.jersey.server.model,org.glassfish.jersey.server.spi,org.glassfish.jersey.server.spi.internal,org.glassfish.jersey.uri"
+                            org.glassfish.jersey.core.jersey-server [598]
+                              Unresolved requirement: Import-Package: jakarta.validation; version="[3.0.0,4.0.0)"; resolution:="optional"
+                              Unresolved requirement: Import-Package: jakarta.ws.rs.ext; version="[3.1.0,5.0.0)"
+                                -> Export-Package: jakarta.ws.rs.ext; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core"
+                              Unresolved requirement: Import-Package: jakarta.ws.rs.container; version="[3.1.0,5.0.0)"
+                                -> Export-Package: jakarta.ws.rs.container; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core"
+                              Unresolved requirement: Import-Package: jakarta.ws.rs.client; version="[3.1.0,5.0.0)"
+                                -> Export-Package: jakarta.ws.rs.client; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core,javax.net.ssl"
+                              Unresolved requirement: Import-Package: jakarta.ws.rs; version="[3.1.0,5.0.0)"
+                                -> Export-Package: jakarta.ws.rs; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core,javax.net.ssl"
+                              Unresolved requirement: Import-Package: org.glassfish.jersey.client; version="[4.0.0,5.0.0)"
+                                -> Export-Package: org.glassfish.jersey.client; bundle-symbolic-name="org.glassfish.jersey.core.jersey-client"; bundle-version="4.0.2"; version="4.0.2"; uses:="jakarta.inject,jakarta.ws.rs,jakarta.ws.rs.client,jakarta.ws.rs.core,jakarta.ws.rs.ext,javax.net.ssl,org.glassfish.jersey,org.glassfish.jersey.client.inject,org.glassfish.jersey.client.spi,org.glassfish.jersey.http,org.glassfish.jersey.innate,org.glassfish.jersey.internal,org.glassfish.jersey.internal.inject,org.glassfish.jersey.internal.util,org.glassfish.jersey.internal.util.collection,org.glassfish.jersey.message,org.glassfish.jersey.message.internal,org.glassfish.jersey.spi"
+                                   org.glassfish.jersey.core.jersey-client [594]
+                                     Unresolved requirement: Import-Package: jakarta.ws.rs.ext; version="[3.1.0,5.0.0)"
+                                       -> Export-Package: jakarta.ws.rs.ext; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core"
+                                     Unresolved requirement: Import-Package: jakarta.ws.rs; version="[3.1.0,5.0.0)"
+                                       -> Export-Package: jakarta.ws.rs; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core,javax.net.ssl"
+                                     Unresolved requirement: Import-Package: jakarta.ws.rs.container; version="[3.1.0,5.0.0)"
+                                       -> Export-Package: jakarta.ws.rs.container; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core"
+                                     Unresolved requirement: Import-Package: jakarta.ws.rs.core; version="[3.1.0,5.0.0)"
+                                       -> Export-Package: jakarta.ws.rs.core; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.xml.bind.annotation,jakarta.xml.bind.annotation.adapters,javax.xml.namespace"
+                                     Unresolved requirement: Import-Package: jakarta.ws.rs.client; version="[3.1.0,5.0.0)"
+                                       -> Export-Package: jakarta.ws.rs.client; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core,javax.net.ssl"
+                                     Unresolved requirement: Import-Package: jakarta.ws.rs.sse; version="[3.1.0,5.0.0)"
+                                       -> Export-Package: jakarta.ws.rs.sse; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.client,jakarta.ws.rs.core"
+                              Unresolved requirement: Import-Package: jakarta.ws.rs.sse; version="[3.1.0,5.0.0)"
+                                -> Export-Package: jakarta.ws.rs.sse; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.client,jakarta.ws.rs.core"
+                              Unresolved requirement: Import-Package: jakarta.ws.rs.core; version="[3.1.0,5.0.0)"
+                                -> Export-Package: jakarta.ws.rs.core; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.xml.bind.annotation,jakarta.xml.bind.annotation.adapters,javax.xml.namespace"
+                       Unresolved requirement: Import-Package: jakarta.ws.rs.core; version="[3.1.0,5.0.0)"
+                         -> Export-Package: jakarta.ws.rs.core; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.xml.bind.annotation,jakarta.xml.bind.annotation.adapters,javax.xml.namespace"
+                       Unresolved requirement: Import-Package: jakarta.ws.rs; version="[3.1.0,5.0.0)"
+                         -> Export-Package: jakarta.ws.rs; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core,javax.net.ssl"
+                       Unresolved requirement: Import-Package: jakarta.ws.rs.sse; version="[3.1.0,5.0.0)"
+                         -> Export-Package: jakarta.ws.rs.sse; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.client,jakarta.ws.rs.core"
+                       Unresolved requirement: Import-Package: org.glassfish.jersey.server.filter; version="[4.0.0,5.0.0)"
+                         -> Export-Package: org.glassfish.jersey.server.filter; bundle-symbolic-name="org.glassfish.jersey.core.jersey-server"; bundle-version="4.0.2"; version="4.0.2"; uses:="jakarta.annotation,jakarta.ws.rs.container,jakarta.ws.rs.core,org.glassfish.jersey.server,org.glassfish.jersey.spi"
+                       Unresolved requirement: Import-Package: org.glassfish.jersey.server.model; version="[4.0.0,5.0.0)"
+                         -> Export-Package: org.glassfish.jersey.server.model; bundle-symbolic-name="org.glassfish.jersey.core.jersey-server"; bundle-version="4.0.2"; version="4.0.2"; uses:="jakarta.ws.rs,jakarta.ws.rs.container,jakarta.ws.rs.core,jakarta.ws.rs.ext,org.glassfish.jersey,org.glassfish.jersey.internal.inject,org.glassfish.jersey.message,org.glassfish.jersey.model,org.glassfish.jersey.model.internal,org.glassfish.jersey.model.internal.spi,org.glassfish.jersey.process,org.glassfish.jersey.server,org.glassfish.jersey.server.internal,org.glassfish.jersey.server.internal.inject,org.glassfish.jersey.server.internal.process,org.glassfish.jersey.server.model.internal,org.glassfish.jersey.server.spi.internal,org.glassfish.jersey.spi,org.glassfish.jersey.uri"
+                       Unresolved requirement: Import-Package: jakarta.ws.rs.container; version="[3.1.0,5.0.0)"
+                         -> Export-Package: jakarta.ws.rs.container; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core"
+                       Unresolved requirement: Import-Package: jakarta.ws.rs.ext; version="[3.1.0,5.0.0)"
+                         -> Export-Package: jakarta.ws.rs.ext; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core"
+                       Unresolved requirement: Import-Package: jakarta.ws.rs.client; version="[3.1.0,5.0.0)"
+                         -> Export-Package: jakarta.ws.rs.client; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core,javax.net.ssl"
+                Unresolved requirement: Import-Package: jakarta.ws.rs.core; version="[3.1.0,5.0.0)"
+                  -> Export-Package: jakarta.ws.rs.core; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.xml.bind.annotation,jakarta.xml.bind.annotation.adapters,javax.xml.namespace"
+                Unresolved requirement: Import-Package: org.glassfish.jersey.message.filtering.spi; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.glassfish.jersey.message.filtering.spi; bundle-symbolic-name="org.glassfish.jersey.ext.jersey-entity-filtering"; bundle-version="4.0.2"; version="4.0.2"; uses:="jakarta.ws.rs.core,org.glassfish.jersey.spi"
+                Unresolved requirement: Import-Package: jakarta.ws.rs.client; version="[3.1.0,5.0.0)"
+                  -> Export-Package: jakarta.ws.rs.client; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core,javax.net.ssl"
+         Unresolved requirement: Import-Package: org.glassfish.jersey.apache5.connector; version="[4.0.0,5.0.0)"
+           -> Export-Package: org.glassfish.jersey.apache5.connector; bundle-symbolic-name="org.glassfish.jersey.connectors.jersey-apache5-connector"; bundle-version="4.0.2"; version="4.0.2"; uses:="jakarta.ws.rs.client,jakarta.ws.rs.core,org.apache.hc.client5.http.classic,org.apache.hc.client5.http.classic.methods,org.apache.hc.client5.http.cookie,org.apache.hc.client5.http.impl.classic,org.glassfish.jersey.client,org.glassfish.jersey.client.spi,org.glassfish.jersey.internal.l10n,org.glassfish.jersey.internal.util,org.glassfish.jersey.spi"
+              org.glassfish.jersey.connectors.jersey-apache5-connector [593]
+                Unresolved requirement: Import-Package: org.glassfish.jersey.client; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.glassfish.jersey.client; bundle-symbolic-name="org.glassfish.jersey.core.jersey-client"; bundle-version="4.0.2"; version="4.0.2"; uses:="jakarta.inject,jakarta.ws.rs,jakarta.ws.rs.client,jakarta.ws.rs.core,jakarta.ws.rs.ext,javax.net.ssl,org.glassfish.jersey,org.glassfish.jersey.client.inject,org.glassfish.jersey.client.spi,org.glassfish.jersey.http,org.glassfish.jersey.innate,org.glassfish.jersey.internal,org.glassfish.jersey.internal.inject,org.glassfish.jersey.internal.util,org.glassfish.jersey.internal.util.collection,org.glassfish.jersey.message,org.glassfish.jersey.message.internal,org.glassfish.jersey.spi"
+                Unresolved requirement: Import-Package: org.glassfish.jersey.client.spi; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.glassfish.jersey.client.spi; bundle-symbolic-name="org.glassfish.jersey.core.jersey-client"; bundle-version="4.0.2"; version="4.0.2"; uses:="jakarta.ws.rs,jakarta.ws.rs.client,jakarta.ws.rs.core,javax.net.ssl,org.glassfish.jersey.client,org.glassfish.jersey.process,org.glassfish.jersey.spi"
+                Unresolved requirement: Import-Package: org.glassfish.jersey.client.innate; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.glassfish.jersey.client.innate; bundle-symbolic-name="org.glassfish.jersey.core.jersey-client"; bundle-version="4.0.2"; version="4.0.2"; uses:="jakarta.ws.rs,jakarta.ws.rs.client,jakarta.ws.rs.core,javax.net.ssl,org.glassfish.jersey.client,org.glassfish.jersey.client.innate.http,org.glassfish.jersey.internal,org.glassfish.jersey.internal.util.collection"
+                Unresolved requirement: Import-Package: org.glassfish.jersey.client.innate.http; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.glassfish.jersey.client.innate.http; bundle-symbolic-name="org.glassfish.jersey.core.jersey-client"; bundle-version="4.0.2"; version="4.0.2"; uses:="jakarta.ws.rs.core,javax.net.ssl,org.glassfish.jersey.client,org.glassfish.jersey.internal"
+         Unresolved requirement: Import-Package: org.glassfish.jersey.client.spi; version="[4.0.0,5.0.0)"
+           -> Export-Package: org.glassfish.jersey.client.spi; bundle-symbolic-name="org.glassfish.jersey.core.jersey-client"; bundle-version="4.0.2"; version="4.0.2"; uses:="jakarta.ws.rs,jakarta.ws.rs.client,jakarta.ws.rs.core,javax.net.ssl,org.glassfish.jersey.client,org.glassfish.jersey.process,org.glassfish.jersey.spi"
+         Unresolved requirement: Import-Package: org.glassfish.jersey.client; version="[4.0.0,5.0.0)"
+           -> Export-Package: org.glassfish.jersey.client; bundle-symbolic-name="org.glassfish.jersey.core.jersey-client"; bundle-version="4.0.2"; version="4.0.2"; uses:="jakarta.inject,jakarta.ws.rs,jakarta.ws.rs.client,jakarta.ws.rs.core,jakarta.ws.rs.ext,javax.net.ssl,org.glassfish.jersey,org.glassfish.jersey.client.inject,org.glassfish.jersey.client.spi,org.glassfish.jersey.http,org.glassfish.jersey.innate,org.glassfish.jersey.internal,org.glassfish.jersey.internal.inject,org.glassfish.jersey.internal.util,org.glassfish.jersey.internal.util.collection,org.glassfish.jersey.message,org.glassfish.jersey.message.internal,org.glassfish.jersey.spi"
+  Unresolved requirement: Require-Bundle: org.eclipse.linuxtools.docker.core; bundle-version="1.0.0"
+    -> Bundle-SymbolicName: org.eclipse.linuxtools.docker.core; bundle-version="5.17.0.202411262017"; singleton:="true"
+       org.eclipse.linuxtools.docker.core [574]
+         Unresolved requirement: Require-Bundle: org.glassfish.jersey.media.jersey-media-json-jackson; bundle-version="3.1.5"
+           -> Bundle-SymbolicName: org.glassfish.jersey.media.jersey-media-json-jackson; bundle-version="4.0.2"
+         Unresolved requirement: Require-Bundle: org.glassfish.jersey.core.jersey-common; bundle-version="3.1.5"
+           -> Bundle-SymbolicName: org.glassfish.jersey.core.jersey-common; bundle-version="3.1.9"
+              org.glassfish.jersey.core.jersey-common [597]
+                Unresolved requirement: Import-Package: org.glassfish.hk2.osgiresourcelocator; version="[1.0.0,2.0.0)"
+                Unresolved requirement: Import-Package: jakarta.ws.rs; version="[3.1.0,4.0.0)"
+                  -> Export-Package: jakarta.ws.rs; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core,javax.net.ssl"
+                Unresolved requirement: Import-Package: jakarta.ws.rs.container; version="[3.1.0,4.0.0)"
+                  -> Export-Package: jakarta.ws.rs.container; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core"
+                Unresolved requirement: Import-Package: jakarta.ws.rs.client; version="[3.1.0,4.0.0)"
+                  -> Export-Package: jakarta.ws.rs.client; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core,javax.net.ssl"
+                Unresolved requirement: Import-Package: jakarta.ws.rs.ext; version="[3.1.0,4.0.0)"
+                  -> Export-Package: jakarta.ws.rs.ext; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core"
+                Unresolved requirement: Import-Package: jakarta.ws.rs.core; version="[3.1.0,4.0.0)"
+                  -> Export-Package: jakarta.ws.rs.core; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.xml.bind.annotation,jakarta.xml.bind.annotation.adapters,javax.xml.namespace"
+         Unresolved requirement: Require-Bundle: org.mandas.docker-client; bundle-version="7.0.7"
+           -> Bundle-SymbolicName: org.mandas.docker-client; bundle-version="11.0.1"
+         Unresolved requirement: Import-Package: jakarta.ws.rs.core; version="2.0.1"
+           -> Export-Package: jakarta.ws.rs.core; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.xml.bind.annotation,jakarta.xml.bind.annotation.adapters,javax.xml.namespace"
+         Unresolved requirement: Import-Package: jakarta.ws.rs.client; version="2.0.1"
+           -> Export-Package: jakarta.ws.rs.client; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core,javax.net.ssl"
+         Unresolved requirement: Require-Bundle: org.glassfish.jersey.inject.jersey-hk2; bundle-version="3.1.5"
+           -> Bundle-SymbolicName: org.glassfish.jersey.inject.jersey-hk2; bundle-version="4.0.2"
+              org.glassfish.jersey.inject.jersey-hk2 [600]
+                Unresolved requirement: Import-Package: org.glassfish.hk2.utilities; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.glassfish.hk2.utilities; bundle-symbolic-name="org.glassfish.hk2.api"; bundle-version="4.0.1"; version="4.0.1"; uses:="jakarta.inject,org.glassfish.hk2.api,org.glassfish.hk2.utilities.binding,org.jvnet.hk2.annotations"
+                     org.glassfish.hk2.api [588]
+                       Unresolved requirement: Import-Package: org.glassfish.hk2.utilities.reflection; version="[4.0.0,5.0.0)"
+                         -> Export-Package: org.glassfish.hk2.utilities.reflection; bundle-symbolic-name="org.glassfish.hk2.utils"; bundle-version="4.0.1"; version="4.0.1"
+                            org.glassfish.hk2.utils [591]
+                              Unresolved requirement: Import-Package: jakarta.validation; version="[3.1.0,4.0.0)"; resolution:="optional"
+                              Unresolved requirement: Import-Package: jakarta.validation.metadata; version="[3.1.0,4.0.0)"; resolution:="optional"
+                              Unresolved requirement: Import-Package: org.hibernate.validator; version="[9.1.0,10.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: org.glassfish.hk2.utilities.general; version="[4.0.0,5.0.0)"
+                         -> Export-Package: org.glassfish.hk2.utilities.general; bundle-symbolic-name="org.glassfish.hk2.utils"; bundle-version="4.0.1"; version="4.0.1"; uses:="jakarta.validation,javax.xml.namespace,javax.xml.stream,org.glassfish.hk2.utilities.cache"
+                       Unresolved requirement: Import-Package: org.aopalliance.intercept; version="[1.0.0,2.0.0)"
+                         -> Export-Package: org.aopalliance.intercept; bundle-symbolic-name="org.aopalliance"; bundle-version="1.0.0.v20230720-0728"; version="1.0.0"; uses:="org.aopalliance.aop"
+                            org.aopalliance [552]
+                              No resolution report for the bundle.                       Unresolved requirement: Import-Package: org.jvnet.hk2.component; version="[4.0.0,5.0.0)"
+                         -> Export-Package: org.jvnet.hk2.component; bundle-symbolic-name="org.glassfish.hk2.utils"; bundle-version="4.0.1"; version="4.0.1"
+                Unresolved requirement: Import-Package: jakarta.ws.rs.sse; version="[3.1.0,5.0.0)"
+                  -> Export-Package: jakarta.ws.rs.sse; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.client,jakarta.ws.rs.core"
+                Unresolved requirement: Import-Package: jakarta.ws.rs.client; version="[3.1.0,5.0.0)"
+                  -> Export-Package: jakarta.ws.rs.client; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core,javax.net.ssl"
+                Unresolved requirement: Import-Package: jakarta.ws.rs.ext; version="[3.1.0,5.0.0)"
+                  -> Export-Package: jakarta.ws.rs.ext; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core"
+                Unresolved requirement: Import-Package: jakarta.ws.rs; version="[3.1.0,5.0.0)"
+                  -> Export-Package: jakarta.ws.rs; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core,javax.net.ssl"
+                Unresolved requirement: Import-Package: org.glassfish.hk2.utilities.binding; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.glassfish.hk2.utilities.binding; bundle-symbolic-name="org.glassfish.hk2.api"; bundle-version="4.0.1"; version="4.0.1"; uses:="org.glassfish.hk2.api,org.glassfish.hk2.utilities"
+                Unresolved requirement: Import-Package: jakarta.ws.rs.container; version="[3.1.0,5.0.0)"
+                  -> Export-Package: jakarta.ws.rs.container; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core"
+                Unresolved requirement: Import-Package: org.glassfish.hk2.api; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.glassfish.hk2.api; bundle-symbolic-name="org.glassfish.hk2.api"; bundle-version="4.0.1"; version="4.0.1"; uses:="jakarta.inject,org.aopalliance.intercept,org.glassfish.hk2.extension,org.glassfish.hk2.utilities,org.jvnet.hk2.annotations"
+                Unresolved requirement: Import-Package: jakarta.ws.rs.core; version="[3.1.0,5.0.0)"
+                  -> Export-Package: jakarta.ws.rs.core; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.xml.bind.annotation,jakarta.xml.bind.annotation.adapters,javax.xml.namespace"
+                Unresolved requirement: Import-Package: org.jvnet.hk2.external.runtime; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.jvnet.hk2.external.runtime; bundle-symbolic-name="org.glassfish.hk2.locator"; bundle-version="4.0.1"; version="4.0.1"; uses:="org.glassfish.hk2.api,org.jvnet.hk2.annotations"
+                     org.glassfish.hk2.locator [589]
+                       Unresolved requirement: Import-Package: org.glassfish.hk2.api; version="[4.0.0,5.0.0)"
+                         -> Export-Package: org.glassfish.hk2.api; bundle-symbolic-name="org.glassfish.hk2.api"; bundle-version="4.0.1"; version="4.0.1"; uses:="jakarta.inject,org.aopalliance.intercept,org.glassfish.hk2.extension,org.glassfish.hk2.utilities,org.jvnet.hk2.annotations"
+                       Unresolved requirement: Import-Package: org.jvnet.hk2.annotations; version="[4.0.0,5.0.0)"
+                         -> Export-Package: org.jvnet.hk2.annotations; bundle-symbolic-name="org.glassfish.hk2.api"; bundle-version="4.0.1"; version="4.0.1"; uses:="org.glassfish.hk2.api"
+                       Unresolved requirement: Import-Package: org.glassfish.hk2.extension; version="[4.0.0,5.0.0)"
+                         -> Export-Package: org.glassfish.hk2.extension; bundle-symbolic-name="org.glassfish.hk2.api"; bundle-version="4.0.1"; version="4.0.1"; uses:="org.glassfish.hk2.api"
+                       Unresolved requirement: Import-Package: javassist.util.proxy; version="[3.30.0,4.0.0)"
+                         -> Export-Package: javassist.util.proxy; bundle-symbolic-name="javassist"; bundle-version="3.31.0.GA"; version="3.31.0.GA"; uses:="javassist,javassist.bytecode"
+                            javassist [549]
+                              No resolution report for the bundle.                       Unresolved requirement: Import-Package: org.glassfish.hk2.utilities.cache; version="[4.0.0,5.0.0)"
+                         -> Export-Package: org.glassfish.hk2.utilities.cache; bundle-symbolic-name="org.glassfish.hk2.utils"; bundle-version="4.0.1"; version="4.0.1"
+                       Unresolved requirement: Import-Package: org.glassfish.hk2.utilities.general; version="[4.0.0,5.0.0)"
+                         -> Export-Package: org.glassfish.hk2.utilities.general; bundle-symbolic-name="org.glassfish.hk2.utils"; bundle-version="4.0.1"; version="4.0.1"; uses:="jakarta.validation,javax.xml.namespace,javax.xml.stream,org.glassfish.hk2.utilities.cache"
+                       Unresolved requirement: Import-Package: org.aopalliance.intercept; version="[1.0.0,2.0.0)"
+                         -> Export-Package: org.aopalliance.intercept; bundle-symbolic-name="org.aopalliance"; bundle-version="1.0.0.v20230720-0728"; version="1.0.0"; uses:="org.aopalliance.aop"
+                       Unresolved requirement: Import-Package: org.glassfish.hk2.utilities; version="[4.0.0,5.0.0)"
+                         -> Export-Package: org.glassfish.hk2.utilities; bundle-symbolic-name="org.glassfish.hk2.api"; bundle-version="4.0.1"; version="4.0.1"; uses:="jakarta.inject,org.glassfish.hk2.api,org.glassfish.hk2.utilities.binding,org.jvnet.hk2.annotations"
+                       Unresolved requirement: Import-Package: org.glassfish.hk2.api.messaging; version="[4.0.0,5.0.0)"
+                         -> Export-Package: org.glassfish.hk2.api.messaging; bundle-symbolic-name="org.glassfish.hk2.api"; bundle-version="4.0.1"; version="4.0.1"; uses:="jakarta.inject,org.glassfish.hk2.api,org.jvnet.hk2.annotations"
+                       Unresolved requirement: Import-Package: org.glassfish.hk2.utilities.reflection; version="[4.0.0,5.0.0)"
+                         -> Export-Package: org.glassfish.hk2.utilities.reflection; bundle-symbolic-name="org.glassfish.hk2.utils"; bundle-version="4.0.1"; version="4.0.1"
+                       Unresolved requirement: Import-Package: org.glassfish.hk2.utilities.reflection.internal; version="[4.0.0,5.0.0)"
+                         -> Export-Package: org.glassfish.hk2.utilities.reflection.internal; bundle-symbolic-name="org.glassfish.hk2.utils"; bundle-version="4.0.1"; version="4.0.1"; uses:="org.glassfish.hk2.utilities.reflection"
+                Unresolved requirement: Import-Package: org.glassfish.hk2.utilities.reflection; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.glassfish.hk2.utilities.reflection; bundle-symbolic-name="org.glassfish.hk2.utils"; bundle-version="4.0.1"; version="4.0.1"
+                Unresolved requirement: Import-Package: org.glassfish.hk2.extension; version="[4.0.0,5.0.0)"
+                  -> Export-Package: org.glassfish.hk2.extension; bundle-symbolic-name="org.glassfish.hk2.api"; bundle-version="4.0.1"; version="4.0.1"; uses:="org.glassfish.hk2.api"
+         Unresolved requirement: Import-Package: jakarta.ws.rs; version="2.0.1"
+           -> Export-Package: jakarta.ws.rs; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core,javax.net.ssl"
+         Unresolved requirement: Import-Package: org.glassfish.jersey.apache.connector
+           -> Export-Package: org.glassfish.jersey.apache.connector; bundle-symbolic-name="org.glassfish.jersey.connectors.jersey-apache-connector"; bundle-version="3.1.9"; version="3.1.9"; uses:="jakarta.ws.rs.client,jakarta.ws.rs.core,org.apache.http.client,org.apache.http.client.methods,org.apache.http.impl.client,org.glassfish.jersey.client,org.glassfish.jersey.client.spi,org.glassfish.jersey.internal.l10n,org.glassfish.jersey.internal.util,org.glassfish.jersey.spi"
+              org.glassfish.jersey.connectors.jersey-apache-connector [592]
+                Unresolved requirement: Import-Package: org.glassfish.jersey.client.innate; version="[3.1.0,4.0.0)"
+                  -> Export-Package: org.glassfish.jersey.client.innate; bundle-symbolic-name="org.glassfish.jersey.core.jersey-client"; bundle-version="3.1.9"; version="3.1.9"; uses:="jakarta.ws.rs.core,org.glassfish.jersey.client"
+                     org.glassfish.jersey.core.jersey-client [595]
+                       Unresolved requirement: Import-Package: jakarta.ws.rs; version="[3.1.0,4.0.0)"
+                         -> Export-Package: jakarta.ws.rs; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core,javax.net.ssl"
+                       Unresolved requirement: Import-Package: org.glassfish.jersey.http; version="[3.1.0,4.0.0)"
+                         -> Export-Package: org.glassfish.jersey.http; bundle-symbolic-name="org.glassfish.jersey.core.jersey-common"; bundle-version="3.1.9"; version="3.1.9"; uses:="jakarta.ws.rs.core"
+                       Unresolved requirement: Import-Package: jakarta.ws.rs.ext; version="[3.1.0,4.0.0)"
+                         -> Export-Package: jakarta.ws.rs.ext; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core"
+                       Unresolved requirement: Import-Package: jakarta.ws.rs.core; version="[3.1.0,4.0.0)"
+                         -> Export-Package: jakarta.ws.rs.core; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.xml.bind.annotation,jakarta.xml.bind.annotation.adapters,javax.xml.namespace"
+                       Unresolved requirement: Import-Package: org.glassfish.jersey; version="[3.1.0,4.0.0)"
+                         -> Export-Package: org.glassfish.jersey; bundle-symbolic-name="org.glassfish.jersey.core.jersey-common"; bundle-version="3.1.9"; version="3.1.9"; uses:="jakarta.ws.rs,jakarta.ws.rs.core,jakarta.ws.rs.ext,javax.net.ssl,org.glassfish.jersey.internal,org.glassfish.jersey.internal.inject,org.glassfish.jersey.internal.util"
+                       Unresolved requirement: Import-Package: jakarta.ws.rs.client; version="[3.1.0,4.0.0)"
+                         -> Export-Package: jakarta.ws.rs.client; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core,javax.net.ssl"
+                Unresolved requirement: Import-Package: jakarta.ws.rs.client; version="[3.1.0,4.0.0)"
+                  -> Export-Package: jakarta.ws.rs.client; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core,javax.net.ssl"
+                Unresolved requirement: Import-Package: jakarta.ws.rs; version="[3.1.0,4.0.0)"
+                  -> Export-Package: jakarta.ws.rs; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core,javax.net.ssl"
+                Unresolved requirement: Import-Package: jakarta.ws.rs.core; version="[3.1.0,4.0.0)"
+                  -> Export-Package: jakarta.ws.rs.core; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.xml.bind.annotation,jakarta.xml.bind.annotation.adapters,javax.xml.namespace"
+                Unresolved requirement: Import-Package: org.glassfish.jersey.client; version="[3.1.0,4.0.0)"
+                  -> Export-Package: org.glassfish.jersey.client; bundle-symbolic-name="org.glassfish.jersey.core.jersey-client"; bundle-version="3.1.9"; version="3.1.9"; uses:="jakarta.inject,jakarta.ws.rs,jakarta.ws.rs.client,jakarta.ws.rs.core,jakarta.ws.rs.ext,javax.net.ssl,org.glassfish.jersey,org.glassfish.jersey.client.inject,org.glassfish.jersey.client.spi,org.glassfish.jersey.http,org.glassfish.jersey.internal,org.glassfish.jersey.internal.inject,org.glassfish.jersey.internal.util,org.glassfish.jersey.internal.util.collection,org.glassfish.jersey.message,org.glassfish.jersey.message.internal,org.glassfish.jersey.spi"
+         Unresolved requirement: Require-Bundle: org.glassfish.jersey.core.jersey-client; bundle-version="3.1.5"
+           -> Bundle-SymbolicName: org.glassfish.jersey.core.jersey-client; bundle-version="4.0.2"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2102)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2093)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2033)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1996)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1912)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.glassfish.jersey.core.jersey-common 4 0 2026-11-17 15:16:10.326
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.glassfish.jersey.core.jersey-common [597]
+  Unresolved requirement: Import-Package: org.glassfish.hk2.osgiresourcelocator; version="[1.0.0,2.0.0)"
+  Unresolved requirement: Import-Package: jakarta.ws.rs; version="[3.1.0,4.0.0)"
+    -> Export-Package: jakarta.ws.rs; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core,javax.net.ssl"
+       jakarta.ws.rs-api [547]
+         Unresolved requirement: Import-Package: jakarta.xml.bind.annotation; version="[3.0.0,4.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: jakarta.xml.bind.annotation.adapters; version="[3.0.0,4.0.0)"; resolution:="optional"
+  Unresolved requirement: Import-Package: jakarta.ws.rs.container; version="[3.1.0,4.0.0)"
+    -> Export-Package: jakarta.ws.rs.container; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs.core"
+  Unresolved requirement: Import-Package: jakarta.ws.rs.client; version="[3.1.0,4.0.0)"
+    -> Export-Package: jakarta.ws.rs.client; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core,javax.net.ssl"
+  Unresolved requirement: Import-Package: jakarta.ws.rs.ext; version="[3.1.0,4.0.0)"
+    -> Export-Package: jakarta.ws.rs.ext; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.ws.rs.core"
+  Unresolved requirement: Import-Package: jakarta.ws.rs.core; version="[3.1.0,4.0.0)"
+    -> Export-Package: jakarta.ws.rs.core; bundle-symbolic-name="jakarta.ws.rs-api"; bundle-version="3.1.0"; version="3.1.0"; uses:="jakarta.ws.rs,jakarta.xml.bind.annotation,jakarta.xml.bind.annotation.adapters,javax.xml.namespace"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2102)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2093)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2033)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1996)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1912)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.equinox.app 0 0 2026-11-17 15:16:11.326
+!MESSAGE Product org.eclipse.epp.package.java.product could not be found.
+
+!ENTRY ch.qos.logback.classic 1 0 2026-11-17 15:16:22.363
+!MESSAGE Logback config file: C:\Users\dell\OneDrive\Pictures\Documents\SOA\ENDSEMWORKSPACE\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.7.0.20241001-1350.xml
+
+!ENTRY org.eclipse.ui 2 0 2026-11-17 15:16:26.535
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2026-11-17 15:16:26.536
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.ui 2 0 2026-11-17 15:16:55.112
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2026-11-17 15:16:55.113
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.equinox.event 4 0 2026-11-17 15:17:13.619
+!MESSAGE Exception while dispatching event org.osgi.service.event.Event [topic=org/eclipse/e4/ui/model/ui/ElementContainer/children/ADD] {ChangedElement=org.eclipse.ui.views.ContentOutline=org.eclipse.e4.ui.model.application.ui.menu.impl.MenuImpl@f81bd2c (tags: [ViewMenu, menuContribution:menu], contributorURI: null) (widget: null, renderer: org.eclipse.e4.ui.workbench.renderers.swt.MenuManagerRenderer@5058fefb, toBeRendered: true, onTop: false, visible: true, containerData: null, accessibilityPhrase: null) (label: null, iconURI: null, tooltip: null, mnemonics: null) (enabled: true), org.eclipse.e4.data={ChangedElement=org.eclipse.ui.views.ContentOutline=org.eclipse.e4.ui.model.application.ui.menu.impl.MenuImpl@f81bd2c (tags: [ViewMenu, menuContribution:menu], contributorURI: null) (widget: null, renderer: org.eclipse.e4.ui.workbench.renderers.swt.MenuManagerRenderer@5058fefb, toBeRendered: true, onTop: false, visible: true, containerData: null, accessibilityPhrase: null) (label: null, iconURI: null, tooltip: null, mnemonics: null) (enabled: true), AttName=children, EventType=ADD, Position=1, Widget=null, NewValue=org.eclipse.lsp4e.toggleLinkWithEditor=org.eclipse.e4.ui.model.application.ui.menu.impl.HandledMenuItemImpl@17eb5661 (tags: [], contributorURI: null) (widget: MenuItem {}, renderer: org.eclipse.e4.ui.workbench.renderers.swt.MenuManagerRenderer@5058fefb, toBeRendered: true, onTop: false, visible: true, containerData: null, accessibilityPhrase: null) (label: Link with Editor, iconURI: platform:/plugin/org.eclipse.lsp4e/icons/full/elcl16/link_to_editor.svg, tooltip: null, enabled: true, selected: true, type: Check) (mnemonics: null) (wbCommand: ParameterizedCommand(Command(org.eclipse.lsp4e.toggleLinkWithEditor,Toggle Link with Editor,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.toggleLinkWithEditor"),
+		,,true),null))}, AttName=children, EventType=ADD, Position=1, Widget=null, NewValue=org.eclipse.lsp4e.toggleLinkWithEditor=org.eclipse.e4.ui.model.application.ui.menu.impl.HandledMenuItemImpl@17eb5661 (tags: [], contributorURI: null) (widget: MenuItem {}, renderer: org.eclipse.e4.ui.workbench.renderers.swt.MenuManagerRenderer@5058fefb, toBeRendered: true, onTop: false, visible: true, containerData: null, accessibilityPhrase: null) (label: Link with Editor, iconURI: platform:/plugin/org.eclipse.lsp4e/icons/full/elcl16/link_to_editor.svg, tooltip: null, enabled: true, selected: true, type: Check) (mnemonics: null) (wbCommand: ParameterizedCommand(Command(org.eclipse.lsp4e.toggleLinkWithEditor,Toggle Link with Editor,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.toggleLinkWithEditor"),
+		,,true),null))} to handler org.eclipse.e4.ui.internal.di.UIEventObjectSupplier$UIEventHandler@731a5a39
+!STACK 0
+org.eclipse.e4.core.di.InjectionException: org.eclipse.swt.SWTException: Unsupported or unrecognized format
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:66)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:183)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:133)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4941)
+	at org.eclipse.e4.ui.workbench.swt.DisplayUISynchronize.syncExec(DisplayUISynchronize.java:34)
+	at org.eclipse.e4.ui.internal.di.UIEventObjectSupplier$UIEventHandler.handleEvent(UIEventObjectSupplier.java:64)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:206)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:201)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:131)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:73)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:44)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:55)
+	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:60)
+	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:424)
+	at org.eclipse.emf.ecore.util.EcoreEList.dispatchNotification(EcoreEList.java:248)
+	at org.eclipse.emf.common.notify.impl.NotifyingListImpl.addUnique(NotifyingListImpl.java:356)
+	at org.eclipse.emf.common.util.AbstractEList.add(AbstractEList.java:340)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ContributionRecord.mergeIntoModel(ContributionRecord.java:250)
+	at org.eclipse.e4.ui.workbench.renderers.swt.MenuManagerRenderer.processAddition(MenuManagerRenderer.java:531)
+	at org.eclipse.e4.ui.workbench.renderers.swt.MenuManagerRenderer.generateContributions(MenuManagerRenderer.java:514)
+	at org.eclipse.e4.ui.workbench.renderers.swt.MenuManagerRenderer.processContributions(MenuManagerRenderer.java:486)
+	at org.eclipse.e4.ui.workbench.renderers.swt.MenuManagerRenderer.createWidget(MenuManagerRenderer.java:412)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:991)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:658)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$1.run(PartRenderingEngine.java:543)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:527)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer.hasVisibleMenuItems(StackRenderer.java:1791)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer.adjustTopRight(StackRenderer.java:903)
+	at org.eclipse.ui.internal.e4.compatibility.ActionBars.forceUpdateTopRight(ActionBars.java:105)
+	at org.eclipse.ui.internal.e4.compatibility.ActionBars.updateActionBars(ActionBars.java:85)
+	at org.eclipse.ui.part.PageBookView.showPageRec(PageBookView.java:929)
+	at org.eclipse.ui.views.contentoutline.ContentOutline.showPageRec(ContentOutline.java:240)
+	at org.eclipse.ui.part.PageBookView.createPartControl(PageBookView.java:446)
+	at org.eclipse.ui.views.contentoutline.ContentOutline.createPartControl(ContentOutline.java:128)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.createPartControl(CompatibilityPart.java:158)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityView.createPartControl(CompatibilityView.java:155)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.create(CompatibilityPart.java:365)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:56)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:977)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:939)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.internalInject(InjectorImpl.java:139)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.internalMake(InjectorImpl.java:386)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.make(InjectorImpl.java:312)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.make(ContextInjectionFactory.java:203)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.createFromBundle(ReflectionContributionFactory.java:90)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.doCreate(ReflectionContributionFactory.java:59)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.create(ReflectionContributionFactory.java:42)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ContributedPartRenderer.createWidget(ContributedPartRenderer.java:134)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:991)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:658)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$1.run(PartRenderingEngine.java:543)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:527)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ElementReferenceRenderer.createWidget(ElementReferenceRenderer.java:73)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:991)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:658)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:762)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:727)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:711)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.lambda$0(PartServiceImpl.java:110)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.lambda$0(UIEventHandler.java:38)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:183)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:133)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4941)
+	at org.eclipse.e4.ui.workbench.swt.DisplayUISynchronize.syncExec(DisplayUISynchronize.java:34)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:38)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:206)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:201)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:131)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:73)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:44)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:55)
+	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:60)
+	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:424)
+	at org.eclipse.e4.ui.model.application.ui.impl.ElementContainerImpl.setSelectedElementGen(ElementContainerImpl.java:168)
+	at org.eclipse.e4.ui.model.application.ui.impl.ElementContainerImpl.setSelectedElement(ElementContainerImpl.java:187)
+	at org.eclipse.e4.ui.workbench.renderers.swt.LazyStackRenderer.postProcess(LazyStackRenderer.java:119)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:676)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:762)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:727)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:711)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:72)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:147)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:672)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:762)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:727)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:711)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:72)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:147)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:672)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:762)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:727)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:711)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:72)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveRenderer.processContents(PerspectiveRenderer.java:48)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:672)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:762)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:727)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:711)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveStackRenderer.showTab(PerspectiveStackRenderer.java:79)
+	at org.eclipse.e4.ui.workbench.renderers.swt.LazyStackRenderer.lambda$0(LazyStackRenderer.java:84)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.lambda$0(UIEventHandler.java:38)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:183)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:133)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4941)
+	at org.eclipse.e4.ui.workbench.swt.DisplayUISynchronize.syncExec(DisplayUISynchronize.java:34)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:38)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:206)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:201)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:131)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:73)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:44)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:55)
+	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:60)
+	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:424)
+	at org.eclipse.e4.ui.model.application.ui.impl.ElementContainerImpl.setSelectedElementGen(ElementContainerImpl.java:168)
+	at org.eclipse.e4.ui.model.application.ui.impl.ElementContainerImpl.setSelectedElement(ElementContainerImpl.java:187)
+	at org.eclipse.ui.internal.WorkbenchPage.busySetPerspective(WorkbenchPage.java:4032)
+	at org.eclipse.ui.internal.WorkbenchPage.lambda$12(WorkbenchPage.java:3969)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.ui.internal.WorkbenchPage.setPerspective(WorkbenchPage.java:3969)
+	at org.eclipse.ui.internal.WorkbenchWindow.setup(WorkbenchWindow.java:896)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:56)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:977)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.internalInject(InjectorImpl.java:139)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.inject(InjectorImpl.java:95)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.inject(ContextInjectionFactory.java:84)
+	at org.eclipse.ui.internal.Workbench.createWorkbenchWindow(Workbench.java:1535)
+	at org.eclipse.ui.internal.StandardTrim.createStatusLine(StandardTrim.java:106)
+	at org.eclipse.ui.internal.StandardTrim.createWidget(StandardTrim.java:47)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:56)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:977)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.internalInject(InjectorImpl.java:139)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.internalMake(InjectorImpl.java:386)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.make(InjectorImpl.java:326)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.make(ContextInjectionFactory.java:228)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.createFromBundle(ReflectionContributionFactory.java:93)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.doCreate(ReflectionContributionFactory.java:59)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.create(ReflectionContributionFactory.java:37)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ToolControlRenderer.createWidget(ToolControlRenderer.java:129)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:991)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:658)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:762)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:727)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:711)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:72)
+	at org.eclipse.e4.ui.workbench.renderers.swt.TrimBarRenderer.processContents(TrimBarRenderer.java:106)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:672)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$1.run(PartRenderingEngine.java:543)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:527)
+	at org.eclipse.e4.ui.workbench.renderers.swt.WBWRenderer.processContents(WBWRenderer.java:684)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:672)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:762)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:727)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:711)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1079)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:663)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:570)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:178)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+Caused by: org.eclipse.swt.SWTException: Unsupported or unrecognized format
+	at org.eclipse.swt.SWT.error(SWT.java:4922)
+	at org.eclipse.swt.SWT.error(SWT.java:4837)
+	at org.eclipse.swt.SWT.error(SWT.java:4808)
+	at org.eclipse.swt.internal.image.FileFormat.load(FileFormat.java:87)
+	at org.eclipse.swt.graphics.ImageLoader.load(ImageLoader.java:154)
+	at org.eclipse.swt.graphics.ImageDataLoader.load(ImageDataLoader.java:25)
+	at org.eclipse.swt.graphics.ImageData.<init>(ImageData.java:334)
+	at org.eclipse.jface.resource.URLImageDescriptor.getImageData(URLImageDescriptor.java:167)
+	at org.eclipse.jface.resource.URLImageDescriptor.getImageData(URLImageDescriptor.java:143)
+	at org.eclipse.jface.resource.URLImageDescriptor$URLImageDataProvider.getImageData(URLImageDescriptor.java:96)
+	at org.eclipse.swt.internal.DPIUtil.lambda$2(DPIUtil.java:543)
+	at org.eclipse.swt.internal.DPIUtil.getElementAtZoom(DPIUtil.java:572)
+	at org.eclipse.swt.internal.DPIUtil.validateAndGetImageDataAtZoom(DPIUtil.java:543)
+	at org.eclipse.swt.graphics.Image.<init>(Image.java:634)
+	at org.eclipse.jface.resource.URLImageDescriptor.createImage(URLImageDescriptor.java:317)
+	at org.eclipse.jface.resource.ImageDescriptor.createResource(ImageDescriptor.java:229)
+	at org.eclipse.jface.resource.DeviceResourceManager.allocate(DeviceResourceManager.java:56)
+	at org.eclipse.jface.resource.AbstractResourceManager.create(AbstractResourceManager.java:92)
+	at org.eclipse.jface.resource.LazyResourceManager.create(LazyResourceManager.java:95)
+	at org.eclipse.jface.resource.LocalResourceManager.allocate(LocalResourceManager.java:71)
+	at org.eclipse.jface.resource.AbstractResourceManager.create(AbstractResourceManager.java:92)
+	at org.eclipse.e4.ui.workbench.renderers.swt.AbstractContributionItem.getImage(AbstractContributionItem.java:145)
+	at org.eclipse.e4.ui.workbench.renderers.swt.AbstractContributionItem.updateIcons(AbstractContributionItem.java:171)
+	at org.eclipse.e4.ui.workbench.renderers.swt.AbstractContributionItem.update(AbstractContributionItem.java:121)
+	at org.eclipse.e4.ui.workbench.renderers.swt.AbstractContributionItem.fill(AbstractContributionItem.java:258)
+	at org.eclipse.jface.action.MenuManager.doItemFill(MenuManager.java:728)
+	at org.eclipse.jface.action.MenuManager.update(MenuManager.java:805)
+	at org.eclipse.jface.action.MenuManager.update(MenuManager.java:672)
+	at org.eclipse.e4.ui.workbench.renderers.swt.MenuManagerRenderer.scheduleManagerUpdate(MenuManagerRenderer.java:1161)
+	at org.eclipse.e4.ui.workbench.renderers.swt.MenuManagerRenderer.processContents(MenuManagerRenderer.java:633)
+	at org.eclipse.e4.ui.workbench.renderers.swt.MenuManagerRenderer.subscribeTopicChildAdded(MenuManagerRenderer.java:320)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:56)
+	... 197 more
+
+!ENTRY org.eclipse.egit.ui 2 0 2026-11-17 15:17:18.089
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\dell'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.oomph.setup.ui 1 0 2026-11-17 15:17:37.784
+!MESSAGE Setup tasks were performed during startup updating 4 preferences. See 'C:\Users\dell\eclipse\java-2024-122\eclipse\configuration\org.eclipse.oomph.setup\setup.log' for details
